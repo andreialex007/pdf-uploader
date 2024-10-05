@@ -2,18 +2,15 @@
 import {sleep} from "../common/Utils.ts";
 
 export default class Store {
-    isUploading = false;
-    fileName? : string;
+    isGenerating = false;
+    fileName?: string;
 
     constructor() {
         makeAutoObservable(this);
     }
 
     onUploadFile = async (file: File) => {
-        this.isUploading = true
         this.fileName = file.name;
-        await sleep(2000);
-        this.isUploading = false;
     };
 
     onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,4 +18,11 @@ export default class Store {
         if (!file) return;
         this.onUploadFile(file);
     };
+
+    generateSlideDeck = async () => {
+        this.isGenerating = true
+        await sleep(2000);
+        this.isGenerating = false;
+    }
+
 }

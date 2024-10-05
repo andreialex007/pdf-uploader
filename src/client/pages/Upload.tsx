@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import Store from "./Store.ts";
 
-
 export default observer(({ store }: { store: Store }) => {
     return (
         <div className="flex flex-col p-5 gap-3">
