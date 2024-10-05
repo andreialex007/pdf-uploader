@@ -1,12 +1,16 @@
 export const onOpen = () => {
     SlidesApp.getUi()
-        .createMenu('My Sample React Project')
-        .addItem('Open', 'openSidebar')
+        .createAddonMenu()  // This method makes sure the menu shows in the Extensions tab
+        .addItem('Convert PDF document to slides', 'openSidebar')
         .addToUi();
+}
+
+export const onInstall = (e) => {
+    onOpen(e);
 }
 
 export const openSidebar = () => {
     const html = HtmlService.createHtmlOutputFromFile('client')
-        .setTitle('My React Project');
+        .setTitle('PDF to Slides');
     SlidesApp.getUi().showSidebar(html);
 }
