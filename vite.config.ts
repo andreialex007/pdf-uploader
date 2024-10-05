@@ -47,7 +47,9 @@ if (existsSync(pfxPath)) {
 const clientServeConfig = () =>
     defineConfig({
         plugins: [react()],
-        server: devServerOptions,
+        server: {
+            ...devServerOptions
+        },
         root: clientRoot,
     })
 
@@ -122,6 +124,7 @@ const serverBuildConfig: BuildOptions = {
 
 const buildConfig = ({mode}: { mode: string }) => {
     const targets = [{src: copyAppscriptEntry, dest: "./"}]
+    console.log("mode=", mode)
     if (mode === "development") {
         targets.push(
             ...clientEntrypoints.map((entrypoint) => ({
