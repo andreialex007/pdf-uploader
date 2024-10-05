@@ -23,16 +23,24 @@
     "start": "npm run deploy:dev && npm run dev"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.25.7",
     "clasp": "^1.0.0",
     "gas-client": "^1.1.1",
+    "mobx": "^6.13.3",
+    "mobx-react-lite": "^4.0.7",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.7",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.3.11",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.2",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8",
@@ -43,6 +51,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "vite": "^5.3.4",
+    "vite-plugin-babel": "^1.2.0",
     "vite-plugin-singlefile": "^2.0.2",
     "vite-plugin-static-copy": "^1.0.6"
   }
