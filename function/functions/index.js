@@ -5,8 +5,8 @@ const {google} = require('googleapis');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const pdfParse = require('pdf-parse');  // Use pdf-parse instead of pdf-lib
-const OpenAI = require('openai');  // OpenAI SDK
+const pdfParse = require('pdf-parse'); 
+const OpenAI = require('openai'); 
 const {v4: uuidv4} = require('uuid');
 
 admin.initializeApp();
