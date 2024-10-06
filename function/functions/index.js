@@ -11,19 +11,17 @@ const {v4: uuidv4} = require('uuid');
 
 admin.initializeApp();
 
-const serviceAccountPath = path.resolve(__dirname, 'serviceAccountKey.json');
+// todo Google Cloud IAM roles must be used not the service key
+const serviceAccountPath = path.resolve(__dirname, 'serviceAccountKey.json'); //todo add your serviceAccountKey to the disk
 
 const auth = new google.auth.GoogleAuth({
     keyFile: serviceAccountPath,
     scopes: ['https://www.googleapis.com/auth/presentations', 'https://www.googleapis.com/auth/drive'],
 });
 
-// Access the OpenAI API key from Firebase environment configuration
-//const openaiApiKey = functions.config().openai.api_key;
-
-// Initialize OpenAI client
+// todo the config must be used: const openaiApiKey = functions.config().openai.api_key;
 const openai = new OpenAI({
-    apiKey: "",
+    apiKey: "", //todo insert you key here
 });
 
 exports.processPdf = functions.https.onRequest(async (req, res) => {
@@ -140,7 +138,6 @@ function generateSlidesRequests(slideContent) {
         const titleObjectId = `title_${uuidv4()}`;
         const bodyObjectId = `body_${uuidv4()}`;
 
-        // Create the slide with TITLE_AND_BODY layout
         requests.push({
             createSlide: {
                 objectId: slideId,
@@ -171,7 +168,6 @@ function generateSlidesRequests(slideContent) {
                 insertionIndex: 0,
             },
         });
-        // Insert body text
         requests.push({
             insertText: {
                 objectId: bodyObjectId,
