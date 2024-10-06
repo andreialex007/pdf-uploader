@@ -5,8 +5,8 @@ const {google} = require('googleapis');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const pdfParse = require('pdf-parse'); 
-const OpenAI = require('openai'); 
+const pdfParse = require('pdf-parse');
+const OpenAI = require('openai');
 const {v4: uuidv4} = require('uuid');
 
 admin.initializeApp();
@@ -23,10 +23,20 @@ const auth = new google.auth.GoogleAuth({
 
 // Initialize OpenAI client
 const openai = new OpenAI({
-    apiKey: "", 
+    apiKey: "",
 });
 
 exports.processPdf = functions.https.onRequest(async (req, res) => {
+    // Set CORS headers for all responses
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+    // Handle OPTIONS preflight request
+    if (req.method === 'OPTIONS') {
+        return res.status(204).send('');  // Send an empty response to preflight
+    }
+
     if (req.method !== 'POST') {
         return res.status(405).send('Method Not Allowed');
     }
