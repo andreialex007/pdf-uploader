@@ -26,7 +26,7 @@ export default observer(({ store }: { store: Store }) => {
 
             <div className={`rounded-3xl bg w-full flex bg-gray-500 text-white py-3 items-center 
             justify-center ${!!store.fileName ? 'hover:opacity-90 cursor-pointer' : 'cursor-not-allowed opacity-60'}`}>
-                <span className="flex gap-2">
+                <span className={`flex gap-2 ${!!store.fileName ? '' : 'pointer-events-none'}`} onClick={()=>store.generateSlideDeck()}>
                     <i className="fa-solid fa-wand-magic-sparkles mt-1"></i>
                     Generate Slide Deck
                 </span>

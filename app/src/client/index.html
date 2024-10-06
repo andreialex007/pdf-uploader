@@ -4,6 +4,14 @@
     <title>App</title>
 
     <base target="_top" />
+    <script>
+      // Using the presentationId passed from server-side
+      const presentationId = "<?= presentationId ?>";
+      console.log("Current Presentation ID:", presentationId);
+      window.presentationId = presentationId;
+
+      // Now you can use the presentationId in the client-side code
+    </script>
     <!-- Add any external scripts and stylesheets here -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script

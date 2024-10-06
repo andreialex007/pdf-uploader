@@ -18,6 +18,9 @@ const auth = new google.auth.GoogleAuth({
     scopes: ['https://www.googleapis.com/auth/presentations', 'https://www.googleapis.com/auth/drive'],
 });
 
+// Access the OpenAI API key from Firebase environment configuration
+//const openaiApiKey = functions.config().openai.api_key;
+
 // Initialize OpenAI client
 const openai = new OpenAI({
     apiKey: "", 
